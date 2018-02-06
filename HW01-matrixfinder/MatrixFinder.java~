@@ -1,0 +1,37 @@
+public class MatrixFinder
+{
+    private static String helperFinder(int[][]array, int row, int col, int find)
+    {
+	if ((row >= array.length) || (col < 0))
+	    return "(-1,-1)";
+
+	if (array[row][col] == find)
+	    { 
+		row += 1;
+		col += 1;
+		return "(" + row + "," + col + ")";
+	    }
+	
+	if (array[row][col] > find)
+	    {
+		return helperFinder(array, row, col - 1, find);
+	    }
+	else
+	    {
+		return helperFinder(array, row + 1, col, find);
+	    }
+    }
+
+    
+    public static String finder(int[][] array, int find)
+    {
+	return helperFinder(array, 0, array.length - 1, find);
+    }
+    
+    public static void main(String[] args)
+    {
+	int[][] test1 = {{1}};
+	System.out.println("test1, find 1: " + finder(test1,1));
+	System.out.println("test1, find 6: " + finder(test1,6));
+    }
+}
