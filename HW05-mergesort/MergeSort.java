@@ -1,3 +1,8 @@
+// T. Fabiha
+// APCS2 pd2
+// HW05--Step 1: Split, Step 2: ?, Step 3: Sorted!. . .
+// 2018-02-07
+
 /*======================================
   class MergeSort
   Implements mergesort on array of ints.
