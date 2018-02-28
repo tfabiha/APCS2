@@ -53,8 +53,29 @@ public class QueenBoard
      */
     private boolean solveH( int col ) 
     {
+	/*
         boolean ret = false;
 	for (int row = 0; row < _board.length && !ret; row++)
+	    {
+		ret = addQueen(row,col);
+	    }
+	return ret;
+	*/    
+	int lastRow = -1;
+        if (col == 0)
+	    lastRow = 1;
+	for (int row = 0; row < _board.length && lastRow == -1; row++)
+	    {
+		if (_board[row][col-1] == 1)
+		    lastRow = row;
+	    }
+
+	boolean ret = false;
+	for (int row = lastRow; row < _board.length && !ret; row++)
+	    {
+		ret = addQueen(row,col);
+	    }
+	for (int row = 0; row < lastRow && !ret; row++)
 	    {
 		ret = addQueen(row,col);
 	    }
@@ -178,9 +199,25 @@ public class QueenBoard
 	System.out.println(b);
 	*/
 
-	QueenBoard b0 = new QueenBoard(12);
-	System.out.println(b0.solve());
+	QueenBoard b0 = new QueenBoard(3);
+	QueenBoard b1 = new QueenBoard(4);
+	QueenBoard b2 = new QueenBoard(5);
+	QueenBoard b3 = new QueenBoard(6);
+	QueenBoard b4 = new QueenBoard(7);
+	QueenBoard b5 = new QueenBoard(8);
+	System.out.println("3 is " + b0.solve());
 	b0.printSolution();
+	System.out.println("4 is " + b1.solve());
+	b1.printSolution();
+	System.out.println("5 is " + b2.solve());
+	b2.printSolution();
+	System.out.println("6 is " + b3.solve());
+	b3.printSolution();
+	System.out.println("7 is " + b4.solve());
+	b4.printSolution();
+	System.out.println("8 is " + b5.solve());
+	b5.printSolution();
+
     }
     
 }//end class
