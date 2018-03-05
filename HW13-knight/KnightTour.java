@@ -116,20 +116,19 @@ class TourFinder
 	if ( solved ) System.exit(0);
 
 	//primary base case: tour completed
-	if ( checkTour() ) {
+	if ( moves == sideLength * sideLength ) {
 	    System.exit(0);
 	}
 	//other base case: stepped off board or onto visited cell
-	if ( x >= board.length || x < 0 || y < 0 || y >= board.length ||
-	     board[x][y] != 0 ) {
-	    System.out.println( this ); //refresh screen
+	if ( board[x][y] != 0 ) {
+	    //System.out.println( this ); //refresh screen
 	}
 	//otherwise, mark current location
 	//and recursively generate tour possibilities from current pos
 	else {	    
-	    board[x][y] = -1;
+	    board[x][y] = moves;
 	    System.out.println( this ); //refresh screen
-	    System.out.println("hi");
+	    
 	    delay(1000); //uncomment to slow down enough to view
 
 	    /*======================================
@@ -141,7 +140,16 @@ class TourFinder
 	      g . . . b
 	      . h . a .
 	      ======================================*/
-
+	    findTour(x-1,y-2,moves+1);
+	    findTour(x-1,y+2,moves+1);
+	    findTour(x-2,y-1,moves+1);
+	    findTour(x-2,y+1,moves+1);
+	    findTour(x+1,y-2,moves+1);
+	    findTour(x+1,y+2,moves+1);
+	    findTour(x+2,y-1,moves+1);
+	    findTour(x+2,y+1,moves+1);
+	    
+	    /*
 	    if (x - 1 >= 0)
 		{
 		    if (y - 2 >= 0)
@@ -194,6 +202,7 @@ class TourFinder
 			    System.out.println( this ); //refresh screen
 			}
 		}
+	    */
 	    
 	    //If made it this far, path did not lead to tour, so back up.
 
