@@ -1,12 +1,17 @@
+// T. Fabiha
+// APCS2 pd2
+// HW13 -- HW #13: We On Award Tour
+// 2018-03-05
+
 /*======================================
   class KnightTour
   Animates a Knight's Tour of a square chess board.
 
   Mean execution times for boards of size n*n:
-  n=5   __s    over __ executions 
-  n=6   __s    over __ executions
-  n=7   __s    over __ executions
-  n=8   __s    over __ executions
+  n=5   0.099s    over 20 executions 
+  n=6   0.102s    over 20 executions
+  n=7   0.105s    over 20 executions
+  n=8   0.111s    over 20 executions
   ======================================*/
 
 /***
@@ -84,22 +89,6 @@ class TourFinder
 	}
     }
 
-    private boolean checkTour()
-    {
-	for (int x = 0; x < board.length; x++)
-	    {
-		for (int y = 0; y < board.length; y++)
-		    {
-			if (board[x][y] == 0)
-			    {
-				return true;
-			    }
-		    }
-	    }
-	solved = true;
-	return false;
-    }
-
 
     /*********************************************
      * void findTour(int x,int y,int moves) -- use depth-first w/ backtracking algo 
@@ -110,13 +99,15 @@ class TourFinder
      *********************************************/
     public void findTour( int x, int y, int moves ) 
     {
-	delay(50); //slow it down enough to be followable
+	//delay(50); //slow it down enough to be followable
 
 	//if a tour has been completed, stop animation
 	if ( solved ) System.exit(0);
 
 	//primary base case: tour completed
 	if ( moves == sideLength * sideLength ) {
+	    board[x][y] = moves;
+	    System.out.println( this ); //refresh screen
 	    System.exit(0);
 	}
 	//other base case: stepped off board or onto visited cell
@@ -127,9 +118,9 @@ class TourFinder
 	//and recursively generate tour possibilities from current pos
 	else {	    
 	    board[x][y] = moves;
-	    System.out.println( this ); //refresh screen
+	    //System.out.println( this ); //refresh screen
 	    
-	    delay(1000); //uncomment to slow down enough to view
+	    //delay(1000); //uncomment to slow down enough to view
 
 	    /*======================================
 	      Recursively try to solve (find tour) from 
@@ -208,7 +199,7 @@ class TourFinder
 
 	    board[x][y] = 0;
 
-	    System.out.println( this ); //refresh screen
+	    //System.out.println( this ); //refresh screen
 	}
     }//end findTour()
 
@@ -219,7 +210,7 @@ public class KnightTour
 {
     public static void main( String[] args ) {
 
-	int n = 8;
+	int n = 6;
 
 	try { 
 	    n = Integer.parseInt( args[0] );
