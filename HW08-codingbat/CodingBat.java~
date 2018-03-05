@@ -1,0 +1,34 @@
+public class CodingBat {
+    public String parenBit(String str) {
+	if (str.length() < 2) {
+	    return str;
+	}
+  
+	if (str.substring(0,1).equals("(") && str.substring(str.length()-1).equals(")")) {
+	    return str;
+	}
+  
+	if (!(str.substring(0,1).equals("("))) {
+	    return parenBit(str.substring(1));
+	} else {
+	    return parenBit(str.substring(0,str.length()-1));
+	}
+    }
+
+    public static void main(String[] args) {
+	strDist("catcowcat", "cat") ;// 9	9	OK	
+	strDist("catcowcat", "cow") ;// 3	3	OK	
+	strDist("cccatcowcatxx", "cat") ;// 9	0	X	
+	strDist("abccatcowcatcatxyz", "cat") ;// 12	12	OK	
+	strDist("xyx", "x") ;// 3	3	OK	
+	strDist("xyx", "y") ;// 1	1	OK	
+	strDist("xyx", "z") ;// 0	0	OK	
+	strDist("z", "z") ;// 1	1	OK	
+	strDist("x", "z") ;// 0	0	OK	
+	strDist("", "z") ;// 0	0	OK	
+	strDist("hiHellohihihi", "hi") ;// 13	13	OK	
+	strDist("hiHellohihihi", "hih") ;// 5	3	X	
+	strDist("hiHellohihihi", "o") ;// 1	1	OK	
+	strDist("hiHellohihihi", "ll") ;// 2	0	X
+    }
+}
