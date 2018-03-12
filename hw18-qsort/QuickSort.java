@@ -1,5 +1,5 @@
-//Clyde "Thluffy" Sinclair
-//APCS2 pd0
+//T. Fabiha
+//APCS2 pd1
 //HW18 -- QuickSort
 //2018-03-13t
   
