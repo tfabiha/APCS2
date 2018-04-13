@@ -1,0 +1,34 @@
+//T. Fabiha
+//APCS2 pd 2
+//HW
+//2018-03-
+
+public class LList implements List
+{
+    //instant variables
+    DLLNode _head;
+    DLLNode _tail;
+    int _size;
+    
+    //add node containing input String to end of list
+    public boolean add( String x )
+    {
+	
+    }
+
+    //inserts a node containing s at position I
+    public void add( int i, String s ); 
+
+    //removes the node at position i and returns its cargo
+    public String remove( int i );
+
+    //return data in element at position i
+    public String get( int i ); 
+
+    //overwrite data in element at position i
+    public String set( int i, String x ); 
+
+    //return length of list
+    public int size(); 
+
+}

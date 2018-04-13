@@ -1,0 +1,21 @@
+// T. Fabiha
+// APCS2 pd2
+// HW16 --
+// 2018-03-06
+
+public class Mysterion {
+    private static void swap(int[] arr, int c, int b)
+    {
+	int temp = arr[c];
+	arr[c] = arr[b];
+	arr[b] = temp;
+    }
+    public  static void mystery(int[] arr, int a, int b, int c)
+    {
+	int v = arr[c];
+	swap(arr, c, b);
+	int s = a;
+    }
+    public static void main(String[] args)
+    {}
+}

@@ -5,13 +5,12 @@
 
 /*======================================
   class KnightTour
-  Animates a Knight's Tour of a square chess board.
-
-  Mean execution times for boards of size n*n:
-  n=5   0.099s    over 20 executions 
-  n=6   0.102s    over 20 executions
-  n=7   0.105s    over 20 executions
-  n=8   0.111s    over 20 executions
+  Animates a Knight's Tour of a square chess board. 
+  Mean execution times for boards of size n*n: From (1,1)
+  n=5   0.0769s    over 20 executions 
+  n=6   0.4387s    over 20 executions
+  n=7   1.2338s    over 20 executions
+  n=8   0.2241s    over 20 executions
   ======================================*/
 
 /***
@@ -105,13 +104,14 @@ class TourFinder
 	if ( solved ) System.exit(0);
 
 	//primary base case: tour completed
-	if ( moves == sideLength * sideLength ) {
-	    board[x][y] = moves;
+	if ( moves > sideLength * sideLength ) {
+	    //board[x][y] = moves;
 	    System.out.println( this ); //refresh screen
 	    System.exit(0);
 	}
 	//other base case: stepped off board or onto visited cell
-	if ( board[x][y] != 0 ) {
+	if ( !(board[x][y] == 0) ) {
+	    return;
 	    //System.out.println( this ); //refresh screen
 	}
 	//otherwise, mark current location
@@ -140,60 +140,7 @@ class TourFinder
 	    findTour(x+2,y-1,moves+1);
 	    findTour(x+2,y+1,moves+1);
 	    
-	    /*
-	    if (x - 1 >= 0)
-		{
-		    if (y - 2 >= 0)
-			{
-			    findTour(x-1,y-2,moves+1);
-			    System.out.println( this ); //refresh screen
-			}
-		    if (y + 2 < board.length)
-			{
-			    findTour(x-1,y+2,moves+1);
-			    System.out.println( this ); //refresh screen
-			}
-		}
-	    if (x + 1 < board.length)
-		{
-		    if (y - 2 >= 0)
-			{
-			    findTour(x+1,y-2,moves+1);
-			    System.out.println( this ); //refresh screen
-			}
-		    if (y + 2 < board.length)
-			{
-			    findTour(x+1,y+2,moves+1);
-			    System.out.println( this ); //refresh screen
-			}
-		}
-	    if (x - 2 >= 0)
-		{
-		    if (y - 1 >= 0)
-			{
-			    findTour(x-2,y-1,moves+1);
-			    System.out.println( this ); //refresh screen
-			}
-		    if (y + 1 < board.length)
-			{
-			    findTour(x-2,y+1,moves+1);
-			    System.out.println( this ); //refresh screen
-			}
-		}
-	    if (x + 2 < board.length)
-		{
-		    if (y - 1 >= 0)
-			{
-			    findTour(x+2,y-1,moves+1);
-			    System.out.println( this ); //refresh screen
-			}
-		    if (y + 1 < board.length)
-			{
-			    findTour(x+2,y+1,moves+1);
-			    System.out.println( this ); //refresh screen
-			}
-		}
-	    */
+	    
 	    
 	    //If made it this far, path did not lead to tour, so back up.
 
