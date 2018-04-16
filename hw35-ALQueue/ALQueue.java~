@@ -1,0 +1,53 @@
+// Team Hamburger -
+// APCS2 pd2
+//
+// 20118-04-16
+
+import java.util.ArrayList;
+
+public class ALQueue<Quasar> implements Queue<Quasar>
+{
+    private ArrayList<Quasar> _queue;
+    private int _start;
+    private int _end;
+    private int _size;
+
+    public ALQueue<Quasar>()
+    {
+	_queue = new ArrayList<Quasar>;
+	_start = null;
+	_end = null;
+	_size = 0;
+    }
+    
+    //means of removing an element from collection:
+    //Dequeues and returns the first element of the queue.
+    public Quasar dequeue()
+    {
+	_start -= 1;
+	return _queue.set(_start + 1, null);
+    }
+
+    //means of adding an element to collection:
+    //Enqueue an element onto the back of this queue.
+    public void enqueue( Quasar x )
+    {
+	if (_start == null)
+	    {
+	        _start = 0;
+		_end = 0;
+	    }
+	else
+	    {
+		_end += 1;
+	    }
+
+	_queue.add(x);
+    }
+
+    //Returns true if this queue is empty, otherwise returns false.
+    public boolean isEmpty();
+
+    //Returns the first element of the queue without dequeuing it.
+    public Quasar peekFront();
+}
