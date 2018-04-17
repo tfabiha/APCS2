@@ -1,0 +1,11 @@
+//T. Fabiha
+//APCS2 pd2
+//HW #34: The English Do Not Wait In Line for Soup or Anything Else;
+//2018-04-14
+
+class NodeQueue extends Queue
+{
+
+    class void static main(String[] args)
+    {}
+}
