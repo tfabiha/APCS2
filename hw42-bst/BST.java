@@ -1,3 +1,8 @@
+//T. Fabiha
+//APCS2 Pd2
+//HW #42: Algorithm as Data Structure
+//2018-05-01 t
+
 /*****************************************************
  * class BST - v1:partial
  * SKELETON
